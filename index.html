@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="logo.png">
+</head>
+<body>
+
+<title>kek Boards</title>
+
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;}
+.invisible {
+  visibility: hidden;
+}
+.forumCont{
+	margin-top: -462px;
+}
+</style>
+
+<div class="center" id="loginPage">
+<img src="https://i.redd.it/u0ndsej6vx121.png" width="460" height="250">
+<h1>kek Boards</h1>
+<label>username:</label>
+<input type="text" id="username"><br><br>
+<label>password:</label>
+<input type="text" id="password"><br><br>&nbsp;
+<input type="submit" value="login" onclick="login()">&nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="stayLogged">
+<label>Stay signed in</label>
+</div>
+
+<div class="forumCont" id="forumPage">
+forum page goes here
+</div>
+
+</body>
+</html>
+
+<script>
+document.querySelector('#forumPage').classList.toggle('invisible');
+var logged = false;
+document.addEventListener('keypress', logKey);
+function login() {
+	if(logged == false) {
+		document.querySelector('#loginPage').classList.toggle('invisible');
+		document.querySelector('#forumPage').classList.toggle('invisible');
+	}
+	logged = true;
+}
+function logKey(e) {
+  if("Enter" == e.code){
+	login();
+  }
+}
+</script>
