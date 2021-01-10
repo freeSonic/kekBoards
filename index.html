@@ -63,6 +63,11 @@ var logged = false;
 var netNode = new Worker('chatNode.js');
 var loading = false;
 document.addEventListener('keypress', logKey);
+netNode.onmessage = function(e){
+	if(e.data[0] == 'connected'){
+		loggedIn();
+	}
+}
 function login() {
 	//netNode.postMessage(['connect', document.getElementById('logInfo').value]);
 	netNode.postMessage('connect');
@@ -80,10 +85,5 @@ function loggedIn(){
 	document.querySelector('#loginPage').classList.toggle('invisible');
 	document.querySelector('#forumPage').classList.toggle('invisible');
 	logged = true;
-}
-netNode.onmessage = function(e){
-	if(e.data[0] == 'connected'){
-		loggedIn();
-	}
 }
 </script>
