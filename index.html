@@ -56,23 +56,26 @@ board names go here
 </html>
 
 <script>
-document.querySelector('#errorMsg').classList.toggle('invisible');
-document.querySelector('#loadingGif').classList.toggle('invisible');
-document.querySelector('#forumPage').classList.toggle('invisible');
 var logged = false;
 var netNode = new Worker('chatNode.js');
 var loading = false;
+document.querySelector('#errorMsg').classList.toggle('invisible');
+document.querySelector('#loadingGif').classList.toggle('invisible');
+document.querySelector('#forumPage').classList.toggle('invisible');
 document.addEventListener('keypress', logKey);
+
 netNode.onmessage = function(e){
 	if(e.data[0] == 'connected'){
 		loggedIn();
 	}
 }
+
 function login() {
 	netNode.postMessage(['connect', document.getElementById('logInfo').value]);
 	document.querySelector('#loadingGif').classList.toggle('invisible');
 	loading=true;
 }
+
 function logKey(e) {
   if('Enter' == e.code){
 	if(logged==false && loading==false){
@@ -80,6 +83,7 @@ function logKey(e) {
 	}
   }
 }
+
 function loggedIn(){
 	document.querySelector('#loginPage').classList.toggle('invisible');
 	document.querySelector('#forumPage').classList.toggle('invisible');
