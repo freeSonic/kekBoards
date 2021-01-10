@@ -1,5 +1,5 @@
 importScripts('alea.js');
-importScripts('api.js');
+importScripts('cryptico.js');
 
 function sleep(milliseconds) {
   const date = Date.now();
