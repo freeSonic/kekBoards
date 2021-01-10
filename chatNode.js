@@ -23,8 +23,8 @@ function stringToHash(string) {
 function connect(userPassword){
 	//var randGen = new alea(userPassword);
 	//console.log(randGen());
-	Math.seedRandom(userPassword);
-	console.log(Math.random());
+	//Math.seedRandom(userPassword);
+	//console.log(Math.random());
 	postMessage(['connected']);
 }
 
