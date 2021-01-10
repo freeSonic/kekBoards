@@ -10,7 +10,7 @@ function sleep(milliseconds) {
 
 function connect(userPassword){
 	var randGen = Alea(userPassword);
-	console.log(randGen.next());
+	console.log(randGen());
 	postMessage(['connected']);
 }
 
