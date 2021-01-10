@@ -39,7 +39,7 @@
 <br><br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<label style="color: red;" id="errorMsg">(Failed to connect network.)</label>
+<label style="color: red;" id="errorMsg"></label>
 </div>
 
 
@@ -59,7 +59,6 @@ board names go here
 var logged = false;
 var netNode = new Worker('chatNode.js');
 var loading = false;
-document.querySelector('#errorMsg').classList.toggle('invisible');
 document.querySelector('#loadingGif').classList.toggle('invisible');
 document.querySelector('#forumPage').classList.toggle('invisible');
 document.addEventListener('keypress', logKey);
