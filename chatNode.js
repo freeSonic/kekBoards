@@ -1,3 +1,5 @@
+import 'alea';
+
 function sleep(milliseconds) {
   const date = Date.now();
   let currentDate = null;
