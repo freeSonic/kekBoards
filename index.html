@@ -70,6 +70,7 @@ netNode.onmessage = function(e){
 }
 
 function login() {
+	console.log('login funct');
 	netNode.postMessage(['connect', document.getElementById('logInfo').value]);
 	document.querySelector('#loadingGif').classList.toggle('invisible');
 	loading=true;

@@ -1,5 +1,5 @@
 importScripts('alea.js');
-importScripts('cryptico.js');
+//importScripts('cryptico.js');
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -33,5 +33,6 @@ function connect(userPassword){
 onmessage = function(e){
 	if(e.data[0] == 'connect'){
 		connect(e.data[1]);
+		console.log('onmessage');
 	}
 }
