@@ -1,4 +1,5 @@
 importScripts('alea.js');
+importScripts('cryptico.js');
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -9,8 +10,10 @@ function sleep(milliseconds) {
 }
 
 function connect(userPassword){
-	var randGen = new alea(userPassword);
-	console.log(randGen());
+	//var randGen = new alea(userPassword);
+	//console.log(randGen());
+	Math.seedRandom(userPassword);
+	console.log(Math.random());
 	postMessage(['connected']);
 }
 
