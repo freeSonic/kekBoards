@@ -64,9 +64,10 @@ var netNode = new Worker('chatNode.js');
 var loading = false;
 document.addEventListener('keypress', logKey);
 netNode.onmessage = function(e){
-	if(e.data[0] == 'connected'){
+	loggedIn();
+	/*if(e.data[0] == 'connected'){
 		loggedIn();
-	}
+	}*/
 }
 function login() {
 	//netNode.postMessage(['connect', document.getElementById('logInfo').value]);
