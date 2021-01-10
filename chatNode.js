@@ -23,9 +23,9 @@ function stringToHash(string) {
 function connect(userPassword){
 	//var randGen = new alea(userPassword);
 	//console.log(randGen());
-	var keyPair = cryptico.generateRSAKey(userPassword, 1024);
-	var publicKey= cryptico.publicKeyString(keyPair);
-	console.log(publicKey);
+	//var keyPair = cryptico.generateRSAKey(userPassword, 1024);
+	//var publicKey= cryptico.publicKeyString(keyPair);
+	//console.log(publicKey);
 	console.log("test");
 	postMessage(['connected']);
 }
