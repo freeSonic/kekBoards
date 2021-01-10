@@ -1,5 +1,3 @@
-(function(global, module, define) {
-
 function Alea(seed) {
   var me = this, mash = Mash();
 
@@ -68,21 +66,6 @@ function Mash() {
 
   return mash;
 }
-
-
-if (module && module.exports) {
-  module.exports = impl;
-} else if (define && define.amd) {
-  define(function() { return impl; });
-} else {
-  this.alea = impl;
-}
-
-})(
-  this,
-  (typeof module) == 'object' && module,    // present in node.js
-  (typeof define) == 'function' && define   // present with an AMD loader
-);
 
 function sleep(milliseconds) {
   const date = Date.now();
