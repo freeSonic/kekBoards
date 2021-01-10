@@ -2982,7 +2982,7 @@ var aes = (function () {
 		} else {
 		this.cryptico = my;
 	}
-	
+	module.exports.RSAKey = RSAKey;
     //return my;
 })(
   this,
@@ -2990,4 +2990,3 @@ var aes = (function () {
   (typeof define) == 'function' && define   // present with an AMD loader
 );
 
-module.exports.RSAKey = RSAKey;
