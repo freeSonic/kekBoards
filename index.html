@@ -64,7 +64,8 @@ var netNode = new Worker('chatNode.js');
 var loading = false;
 document.addEventListener('keypress', logKey);
 function login() {
-	netNode.postMessage(['connect', document.getElementById('logInfo').value]);
+	//netNode.postMessage(['connect', document.getElementById('logInfo').value]);
+	netNode.postMessage('connect');
 	document.querySelector('#loadingGif').classList.toggle('invisible');
 	loading=true;
 }
