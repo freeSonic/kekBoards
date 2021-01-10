@@ -7,9 +7,11 @@ function sleep(milliseconds) {
 }
 
 function connect(userPassword){
+	/*what the fuck javascript
 	var alea = require('alea');
 	var randGen = alea(userPassword);
 	console.log(randGen.next());
+	*/
 	postMessage(['connected']);
 }
 
