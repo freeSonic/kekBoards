@@ -2,14 +2,9 @@
 // All Rights Reserved.
 // See "LICENSE" for details.
 // Basic JavaScript BN library - subset useful for RSA encryption.
-if (typeof exports !== 'undefined') {
-  if (typeof module !== 'undefined' && module.exports) {
-    exports = module.exports = _;
-  }
-  exports._ = _;
-} else {
-  root['_'] = _;
-}
+try {
+   module.exports = exports = MyModule;
+} catch (e) {console.log(e);}
 // Bits per digit
 var dbits;
 
