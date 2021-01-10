@@ -2,9 +2,7 @@
 // All Rights Reserved.
 // See "LICENSE" for details.
 // Basic JavaScript BN library - subset useful for RSA encryption.
-try {
-   module.exports = exports = MyModule;
-} catch (e) {console.log(e);}
+
 // Bits per digit
 var dbits;
 
@@ -2625,8 +2623,9 @@ var aes = (function () {
     }
 
     return my;
+}());
 
-}());var cryptico = module.exports = (function() {
+	(function(global, module, define) {
 
     var my = {};
 
@@ -2976,8 +2975,19 @@ var aes = (function () {
         }
     }
 
-    return my;
-
-}());
+	if (module && module.exports) {
+		module.exports = my;
+		} else if (define && define.amd) {
+		define(function() { return my; });
+		} else {
+		this.cryptico = my;
+	}
+	
+    //return my;
+})(
+  this,
+  (typeof module) == 'object' && module,    // present in node.js
+  (typeof define) == 'function' && define   // present with an AMD loader
+);
 
 module.exports.RSAKey = RSAKey;
