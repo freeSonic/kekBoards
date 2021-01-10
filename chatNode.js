@@ -13,4 +13,5 @@ onmessage = function(e){
 	if(e.data[0] == 'connect'){
 		connect(e.data[1]);
 	}
+	console.log(e.data[0]);
 }
