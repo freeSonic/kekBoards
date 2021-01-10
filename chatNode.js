@@ -1,4 +1,4 @@
-importScripts('alea');
+importScripts('alea.js');
 
 function sleep(milliseconds) {
   const date = Date.now();
