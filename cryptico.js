@@ -2888,7 +2888,7 @@ var aes = (function () {
     my.generateRSAKey = function(passphrase, bitlength)
     {
         //Math.seedrandom(sha256.hex(passphrase));
-		Math.seedrandom(passphrase);
+		Math.seedrandom(passphrase);//											(Seed KEys)
         var rsa = new RSAKey();
         rsa.generate(bitlength, "03");
         return rsa;
