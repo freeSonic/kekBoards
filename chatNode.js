@@ -1,4 +1,4 @@
-import 'alea';
+var alea = import('alea');
 
 function sleep(milliseconds) {
   const date = Date.now();
