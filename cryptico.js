@@ -1958,8 +1958,8 @@ SecureRandom.prototype.nextBytes = rng_get_bytes;/**
 *
 **/
 
-var crypto = require('crypto');
- 
+/*var crypto = require('crypto');
+
 function SHA256(s){
 	return crypto.createHash('sha256').update(s, 'utf8').digest('hex');
 }
@@ -1970,13 +1970,6 @@ sha256.hex = function(s)
     return SHA256(s);
 }
 
-/**
-*
-*  Secure Hash Algorithm (SHA1)
-*  http://www.webtoolkit.info/
-*
-**/
- 
 function SHA1 (msg) {
 	return crypto.createHash('sha1').update(msg, 'utf8').digest('hex'); 
 }
@@ -1987,19 +1980,14 @@ sha1.hex = function(s)
     return SHA1(s);
 }
 
-/**
-*
-*  MD5 (Message-Digest Algorithm)
-*  http://www.webtoolkit.info/
-*
-**/
+
  
 var MD5 = function (string) {
 	return crypto.createHash('md5').update(string, 'utf8').digest('hex');
 }// Depends on jsbn.js and rng.js
 // Version 1.1: support utf-8 encoding in pkcs1pad2
 // convert a (hex) string to a bignum object
-
+*/
 
 function parseBigInt(str, r)
 {
