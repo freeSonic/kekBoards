@@ -23,8 +23,8 @@ function stringToHash(string) {
 function connect(userPassword){
 	//var randGen = new alea(userPassword);
 	//console.log(randGen());
-	var rsaKey = cryptico.generateRSAKey(userPassword, 1024);
-	var = cryptico.publicKeyString(rsaKey);
+	var rsaKeys = cryptico.generateRSAKey(userPassword, 1024);
+	var publicKey= cryptico.publicKeyString(rsaKey);
 	postMessage(['connected']);
 }
 
