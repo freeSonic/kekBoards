@@ -7,7 +7,7 @@ function sleep(milliseconds) {
 }
 function connect(userPassword){
 	
-	postMessage('connected');
+	postMessage(['connected']);
 }
 onmessage = function(e){
 	if(e.data[0] == 'connect'){
