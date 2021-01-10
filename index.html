@@ -64,15 +64,12 @@ var netNode = new Worker('chatNode.js');
 var loading = false;
 document.addEventListener('keypress', logKey);
 netNode.onmessage = function(e){
-	loggedIn();
-	console.log(e.data[0]);
-	/*if(e.data[0] == 'connected'){
+	if(e.data[0] == 'connected'){
 		loggedIn();
-	}*/
+	}
 }
 function login() {
-	//netNode.postMessage(['connect', document.getElementById('logInfo').value]);
-	netNode.postMessage('connect');
+	netNode.postMessage(['connect', document.getElementById('logInfo').value]);
 	document.querySelector('#loadingGif').classList.toggle('invisible');
 	loading=true;
 }
