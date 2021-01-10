@@ -25,6 +25,7 @@ function connect(userPassword){
 	//console.log(randGen());
 	var keyPair = cryptico.generateRSAKey(userPassword, 1024);
 	var publicKey= cryptico.publicKeyString(keyPair);
+	console.log(publicKey);
 	postMessage(['connected']);
 }
 
