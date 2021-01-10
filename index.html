@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html>
 <head>
+<html lang="en">
+<meta charset="utf-8"/>
 <link rel="icon" href="logo.png">
 </head>
-<body>
 
+<body>
 <title>kek Boards</title>
 
 <style>
 .center {
   margin: auto;
-  width: 60%;
+  width: 500px;
   border: 3px solid #73AD21;
   padding: 10px;
   }
-  .wide {
+.wide {
   margin: auto;
   width: 90%;
   border: 3px solid #73AD21;
@@ -22,23 +23,25 @@
   }
 .invisible {
   visibility: hidden;
-}
+  }
 .forumCont{
-	margin-top: -462px;
-}
+	margin-top: -422px;
+  }
 </style>
 
 <div class="center" id="loginPage">
 <img src="https://i.redd.it/u0ndsej6vx121.png" width="460" height="250">
 <h1>kek Boards</h1>
-<label>username:</label>
-<input type="text" id="username"><br><br>
-<label>password:</label>
-<input type="text" id="password"><br><br>&nbsp;
+<label>username/password:</label>
+<input type="text" id="logInfo" style="display: inline;">
+<img src="https://dportek.com/img/design/loading.gif" width="30" height="30" id="loadingGif" style="margin-top: 0px; margin-left: 35px;">
+<br><br>&nbsp;
 <input type="submit" value="login" onclick="login()">&nbsp;&nbsp;&nbsp;
 <input type="checkbox" id="stayLogged">
-<label>Stay signed in</label>
+<label>Stay signed in</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label style="color: red;" id="errorMsg">(Failed to connect network.)</label>
 </div>
+
 
 <div class="forumCont" id="forumPage">
 <div class="wide">
@@ -53,19 +56,33 @@ board names go here
 </html>
 
 <script>
+document.querySelector('#errorMsg').classList.toggle('invisible');
+document.querySelector('#loadingGif').classList.toggle('invisible');
 document.querySelector('#forumPage').classList.toggle('invisible');
 var logged = false;
+var netNode = new Worker('chatNode.js');
+var loading = false;
 document.addEventListener('keypress', logKey);
 function login() {
-	if(logged == false) {
-		document.querySelector('#loginPage').classList.toggle('invisible');
-		document.querySelector('#forumPage').classList.toggle('invisible');
-	}
-	logged = true;
+	netNode.postMessage(['connect', document.getElementById('logInfo').value]);
+	document.querySelector('#loadingGif').classList.toggle('invisible');
+	loading=true;
 }
 function logKey(e) {
-  if("Enter" == e.code){
-	login();
+  if('Enter' == e.code){
+	if(logged==false && loading==false){
+		login();
+	}
   }
+}
+function loggedIn(){
+	document.querySelector('#loginPage').classList.toggle('invisible');
+	document.querySelector('#forumPage').classList.toggle('invisible');
+	logged = true;
+}
+netNode.onmessage = function(e){
+	if(e.data[0] == 'connected'){
+		loggedIn();
+	}
 }
 </script>
