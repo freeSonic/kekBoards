@@ -2977,12 +2977,13 @@ var aes = (function () {
 
 	if (module && module.exports) {
 		module.exports = my;
+		module.exports.RSAKey = RSAKey;
 		} else if (define && define.amd) {
 		define(function() { return my; });
 		} else {
 		this.cryptico = my;
 	}
-	module.exports.RSAKey = RSAKey;
+	
     //return my;
 })(
   this,
