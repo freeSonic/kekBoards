@@ -1,4 +1,3 @@
-
 function sleep(milliseconds) {
   const date = Date.now();
   let currentDate = null;
@@ -6,7 +5,12 @@ function sleep(milliseconds) {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
 }
+function connect(password){
+	
+	postMessage('connected');
+}
 onmessage = function(e){
-	sleep(400);
-	postMessage(['connected']);
+	if(e.data[0] == 'connect'){
+		connect(e.data[1]);
+	}
 }
