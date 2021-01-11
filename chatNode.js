@@ -38,8 +38,10 @@ function connect(userPassword){
 	var keyPair = cryptico.generateRSAKey(userPassword, 600);
 	var publicKey= cryptico.publicKeyString(keyPair);
 	console.log(publicKey);
+	console.log(publicKey.length);
 	var guid = genGuid(publicKey);
-	console.log(guid);
+	
+	
 	postMessage(['connected']);
 }
 
