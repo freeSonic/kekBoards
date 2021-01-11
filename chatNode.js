@@ -24,7 +24,7 @@ function genGuid(key){
 	var nums = new alea(key);
 	var hash = "";
 	for(i=0; i<4; i++){
-		hash += nums()*256;
+		hash += (nums()*256);
 	}
 	return hash;
 }
