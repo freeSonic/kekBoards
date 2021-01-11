@@ -24,8 +24,7 @@ function genGuid(key){
 	var nums = new alea(key);
 	var hash = "";
 	for(i=0; i<4; i++){
-		var num = 256*nums();
-		console.log(num);
+		var num = Math.floor(256*nums());
 		var str = num.toString();
 		if(num<1) str = "000";
 		if(num<10) str = "00"+num.toString();
