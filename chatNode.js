@@ -24,11 +24,11 @@ function genGuid(key){
 	var nums = new alea(key);
 	var hash = "";
 	for(i=0; i<4; i++){
-		var num = 256*nums();
+		var num = (256*nums());
 		var str;
 		if(num<1) str = "000";
-		if(num<10) str = "00"+num;
-		if(num<100) str = "0"+num;
+		if(num<10) str = "00"+num.toString();
+		if(num<100) str = "0"+num.toString();
 		hash += str;
 	}
 	return hash;
