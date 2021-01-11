@@ -1,5 +1,5 @@
 importScripts('alea.js');
-//importScripts('cryptico.js');
+importScripts('cryptico.js');
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -18,21 +18,28 @@ function stringToHash(string) {
         hash = hash & hash; 
     } 
     return hash; 
-} 
+}
+
+function guid(key){
+	var nums = new Alea(key);
+	var hash = "";
+	for(int i =0; i<4; i++){
+		hash += nums()*256;
+	}
+	return hash;
+}
 
 function connect(userPassword){
-	//var randGen = new alea(userPassword);
-	//console.log(randGen());
-	//var keyPair = cryptico.generateRSAKey(userPassword, 1024);
-	//var publicKey= cryptico.publicKeyString(keyPair);
-	//console.log(publicKey);
-	console.log("test");
+	var keyPair = cryptico.generateRSAKey(userPassword, 1024);
+	var publicKey= cryptico.publicKeyString(keyPair);
+	console.log(publicKey);
+	var guid = guid(publicKey);
+	console.log(guid);
 	postMessage(['connected']);
 }
 
 onmessage = function(e){
 	if(e.data[0] == 'connect'){
 		connect(e.data[1]);
-		console.log('onmessage');
 	}
 }
