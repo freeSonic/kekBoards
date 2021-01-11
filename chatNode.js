@@ -39,7 +39,10 @@ function connect(userPassword){
 	var publicKey= cryptico.publicKeyString(privateKey);
 	console.log(privateKey);
 	console.log(publicKey);
-	//console.log(cryptico.decrypt(cryptico.encrypt(userPassword, publicKey), keyPair));
+	var c = cryptico.encrypt(userPassword, publicKey);
+	console.log(c);
+	var m = cryptico.decrypt(c, keyPair);
+	console.log(m);
 	var guid = genGuid(publicKey);
 	
 	
