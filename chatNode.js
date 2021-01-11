@@ -20,7 +20,7 @@ function stringToHash(string) {
     return hash; 
 }
 
-function guid(key){
+function genGuid(key){
 	var nums = new Alea(key);
 	var hash = "";
 	for(i=0; i<4; i++){
@@ -33,7 +33,7 @@ function connect(userPassword){
 	var keyPair = cryptico.generateRSAKey(userPassword, 1024);
 	var publicKey= cryptico.publicKeyString(keyPair);
 	console.log(publicKey);
-	var guid = guid(publicKey);
+	var guid = genGuid(publicKey);
 	console.log(guid);
 	postMessage(['connected']);
 }
