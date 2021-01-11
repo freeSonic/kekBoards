@@ -25,7 +25,7 @@ function genGuid(key){
 	var hash = "";
 	for(i=0; i<4; i++){
 		var num = (256*nums());
-		var str;
+		var str = num.toString();
 		if(num<1) str = "000";
 		if(num<10) str = "00"+num.toString();
 		if(num<100) str = "0"+num.toString();
