@@ -35,7 +35,7 @@ function genGuid(key){
 }
 
 function connect(userPassword){
-	var keyPair = cryptico.generateRSAKey(userPassword, 1024);
+	var keyPair = cryptico.generateRSAKey(userPassword, 600);
 	var publicKey= cryptico.publicKeyString(keyPair);
 	console.log(publicKey);
 	var guid = genGuid(publicKey);
