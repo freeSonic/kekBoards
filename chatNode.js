@@ -23,7 +23,7 @@ function stringToHash(string) {
 function guid(key){
 	var nums = new Alea(key);
 	var hash = "";
-	for(int i =0; i<4; i++){
+	for(i=0; i<4; i++){
 		hash += nums()*256;
 	}
 	return hash;
